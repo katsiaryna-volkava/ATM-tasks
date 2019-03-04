@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Calculator {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        double firstNumber, secondNumber, result;
+        double firstNumber, secondNumber, result = 0;
         String operator;
 
 
@@ -23,22 +23,19 @@ public class Calculator {
         secondNumber = Double.parseDouble(reader.readLine());
 
 
-
         if (operator.equals("+")) {
             result = (firstNumber + secondNumber);
-            System.out.println("The result is the following: " + result);
         }
         if (operator.equals("-")) {
             result = (firstNumber - secondNumber);
-            System.out.println("The result is the following: " + result);
         }
         if (operator.equals("*")) {
             result = (firstNumber * secondNumber);
-            System.out.println("The result is the following: " + result);
         }
         if (operator.equals("/")) {
             result = (firstNumber / secondNumber);
-            System.out.println("The result is the following: " + result);
         }
+
+        System.out.println("The result is the following: " + result);
     }
 }
