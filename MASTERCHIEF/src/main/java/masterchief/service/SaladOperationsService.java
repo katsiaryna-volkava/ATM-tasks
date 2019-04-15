@@ -1,7 +1,6 @@
 package masterchief.service;
 
 import masterchief.Salad;
-import masterchief.domain.Ingredient;
 
 public class SaladOperationsService {
 

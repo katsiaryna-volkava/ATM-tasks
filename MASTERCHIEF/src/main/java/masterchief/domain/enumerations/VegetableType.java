@@ -1,4 +1,4 @@
-package masterchief.domain;
+package masterchief.domain.enumerations;
 
 public enum VegetableType {
     ROOT,

@@ -1,13 +1,7 @@
 package masterchief;
 
-import masterchief.domain.Ingredient;
-import masterchief.domain.VegetableType;
+import masterchief.domain.enumerations.VegetableType;
 import masterchief.service.SaladOperationsService;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class MasterChiefApplication {
 
