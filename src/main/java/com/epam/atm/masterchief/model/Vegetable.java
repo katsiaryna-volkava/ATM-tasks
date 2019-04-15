@@ -93,5 +93,3 @@ public abstract class Vegetable {
     }
 }
 
-
-}
