@@ -1,4 +1,4 @@
-package masterchief;
+package masterchief.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Salad {
     private String name;
-    private List<Ingredient> ingredients;
+    private List<SaladIngredient> ingredients;
 
     public Salad (String name){
         this.name = name;
@@ -21,15 +21,15 @@ public class Salad {
         this.name = name;
     }
 
-    public void add (Ingredient ingredient) {
+    public void add (SaladIngredient ingredient) {
         ingredients.add(ingredient);
     }
 
-    public void remove (Ingredient ingredient) {
+    public void remove (SaladIngredient ingredient) {
         ingredients.remove(ingredient);
     }
 
-    public final List<Ingredient> getIngredients() {
+    public final List<SaladIngredient> getIngredients() {
         return new ArrayList<>(ingredients);
     }
 

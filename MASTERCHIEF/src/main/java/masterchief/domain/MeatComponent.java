@@ -12,6 +12,14 @@ public class MeatComponent extends SaladIngredient {
         this.isGrilled = isGrilled;
     }
 
+    public boolean isGrilled() {
+        return isGrilled;
+    }
+
+    public void setGrilled(boolean grilled) {
+        isGrilled = grilled;
+    }
+
     public String getName() {
         return name;
     }
