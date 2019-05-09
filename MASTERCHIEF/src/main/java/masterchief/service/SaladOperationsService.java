@@ -4,6 +4,7 @@ import masterchief.domain.MeatComponent;
 import masterchief.domain.Salad;
 import masterchief.domain.SaladIngredient;
 import masterchief.exception.EmptySaladException;
+import masterchief.exception.MissingProteinInfoException;
 import masterchief.exception.SaladException;
 
 import java.io.BufferedWriter;
@@ -14,7 +15,7 @@ import java.util.*;
 
 public class SaladOperationsService {
 
-    public List<String> findVegetarianSalads(Map<String, Salad> map) {
+    public List<String> findVegetarianSalads(Map<String, Salad> map) throws SaladException{
 
         boolean isVegetarian = true;
         List<String> salads = new ArrayList<>();
@@ -35,7 +36,7 @@ public class SaladOperationsService {
         return salads;
     }
 
-    public List<String> findSaladsWithGrilledMeat(Map<String, Salad> map) {
+    public List<String> findSaladsWithGrilledMeat(Map<String, Salad> map) throws SaladException{
         List<String> salads = new ArrayList<>();
 
         for (Map.Entry<String, Salad> pair : map.entrySet()) {
@@ -47,13 +48,9 @@ public class SaladOperationsService {
                         salads.add(pair.getKey());
                         break;
                     }
-
                 }
             }
-
         }
-
-
         return salads;
     }
 
@@ -66,7 +63,7 @@ public class SaladOperationsService {
         return sum;
     }
 
-    public double calculateFat(Salad salad) {
+    public double calculateFat(Salad salad) throws SaladException{
         double sum = 0;
         for (SaladIngredient ingredient : salad.getIngredients()) {
             sum += ingredient.getFat();
@@ -74,15 +71,15 @@ public class SaladOperationsService {
         return sum;
     }
 
-    public double calculateProtein(Salad salad) {
-        double sum = 0;
-        for (SaladIngredient ingredient : salad.getIngredients()) {
-            sum += ingredient.getProtein();
-        }
-        return sum;
+    public double calculateProtein(Salad salad) throws SaladException{
+            double sum = 0;
+            for (SaladIngredient ingredient : salad.getIngredients()) {
+                sum += ingredient.getProtein();
+            }
+            return sum;
     }
 
-    public double calculateCarbohydrates(Salad salad) {
+    public double calculateCarbohydrates(Salad salad) throws SaladException{
         double sum = 0;
         for (SaladIngredient ingredient : salad.getIngredients()) {
             sum += ingredient.getCarbohydrates();
