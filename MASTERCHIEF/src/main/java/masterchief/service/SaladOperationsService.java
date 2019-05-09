@@ -3,7 +3,13 @@ package masterchief.service;
 import masterchief.domain.MeatComponent;
 import masterchief.domain.Salad;
 import masterchief.domain.SaladIngredient;
+import masterchief.exception.EmptySaladException;
+import masterchief.exception.SaladException;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class SaladOperationsService {
@@ -52,7 +58,7 @@ public class SaladOperationsService {
     }
 
 
-    public int calculateTheNumberOfCalories(Salad salad) {
+    public int calculateTheNumberOfCalories(Salad salad) throws SaladException {
         int sum = 0;
         for (SaladIngredient ingredient : salad.getIngredients()) {
             sum += ingredient.getCalories();
@@ -82,6 +88,16 @@ public class SaladOperationsService {
             sum += ingredient.getCarbohydrates();
         }
         return sum;
+    }
+
+    public void consoleOutputAndFileWriter(String string) throws IOException {
+        File file = new File("C:\\Users\\Katsiaryna_Volkava\\Documents\\mentoring\\auto\\1.txt");
+        FileWriter fileWriter = new FileWriter(file);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+        System.out.println(string);
+        bufferedWriter.write(string);
+        bufferedWriter.close();
     }
 
 

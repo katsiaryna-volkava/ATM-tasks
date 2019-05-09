@@ -10,6 +10,10 @@ public class Flavour extends SaladIngredient {
         this.name = name;
     }
 
+    public Flavour() {
+
+    }
+
     public String getName() {
         return name;
     }

@@ -2,8 +2,11 @@ package masterchief;
 
 import masterchief.domain.*;
 import masterchief.domain.enumerations.VegetableType;
+import masterchief.exception.EmptySaladException;
+import masterchief.exception.NoSuchSaladException;
 import masterchief.service.SaladOperationsService;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,12 +24,6 @@ public class MasterChiefApplication {
     static {
         SALADS_LIST = new HashMap<>();
 
-        /*
-        VEGETABLE_INGREDIENTS = new HashMap<>();
-        MEAT_INGREDIENTS = new HashMap<>();
-        FLAVOR_COMPONENT = new HashMap<>();
-        */
-
         VegetableComponent tomato = new VegetableComponent(18, 3.9, 0.2, 0.9, "tomato", VegetableType.FRUIT);
         VegetableComponent cucumber = new VegetableComponent(16, 2.9, 0.2, 0.8, "cucumber", VegetableType.FRUIT);
         VegetableComponent pepper = new VegetableComponent(27, 6.3, 0.2, 1.0, "pepper", VegetableType.FRUIT);
@@ -40,6 +37,7 @@ public class MasterChiefApplication {
         Flavour olive_oil = new Flavour(150, 12.3, 0.0, 0.3, "olive oil");
         Flavour mayonnaise = new Flavour(100, 23.5, 16.5, 5.6, "mayonnaise");
         Flavour sour_cream = new Flavour(50, 12.0, 20.3, 10.2, "sour cream");
+        Flavour nothing = new Flavour();
 
         /*
         VEGETABLE_INGREDIENTS.put("tomato", tomato);
@@ -80,52 +78,57 @@ public class MasterChiefApplication {
         beefSalad.add(tomato);
         beefSalad.add(cucumber);
 
+        Salad saladWhereFlavourIsWithoutFields = new Salad("nothing");
+        saladWhereFlavourIsWithoutFields.add(lettuce);
+        saladWhereFlavourIsWithoutFields.add(nothing);
+
 
         SALADS_LIST.put("greek salad", greekSalad);
         SALADS_LIST.put("tomato salad", tomatoSalad);
         SALADS_LIST.put("salad with beef", beefSalad);
         SALADS_LIST.put("caesar salad", caesarSalad);
 
-
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
 
         SaladOperationsService service = new SaladOperationsService();
 
-        // 1
-        // посчитать калорийность салата греческого салата
-        System.out.println("The total of calories for " + SALADS_LIST.get("greek salad").getName() + " salad is: " + service.calculateTheNumberOfCalories(SALADS_LIST.get("greek salad")));
-
-        // 2
-        // посчитать кол-во углеводов в салате Цезарь
-        System.out.println("The total of carbohydrates for " + SALADS_LIST.get("caesar salad").getName() + " salad is: " + service.calculateCarbohydrates(SALADS_LIST.get("caesar salad")));
-
-        //  3
-        // посчитать кол-во жиров в салате с говядиной
-        System.out.println("The total of fat for " + SALADS_LIST.get("caesar salad").getName() + " salad is: " + service.calculateFat(SALADS_LIST.get("caesar salad")));
-
-        //  4
-        // посчитать кол-во белков в салате из помидоров
-        System.out.println("The total of protein for " + SALADS_LIST.get("tomato salad").getName() + " salad is: " + service.calculateProtein(SALADS_LIST.get("tomato salad")));
+        // 1 --- посчитать калорийность греческого салата
+        service.consoleOutputAndFileWriter("The total of calories for "
+                + SALADS_LIST.get("greek salad").getName()
+                + " salad is: " + service.calculateTheNumberOfCalories(SALADS_LIST.get("greek salad")));
 
 
-        // Найти овощи в салате,соответствующие заданному диапазону параметров
+        // 2 --- посчитать кол-во углеводов в салате Цезарь
+        service.consoleOutputAndFileWriter("The total of fat for "
+                + SALADS_LIST.get("caesar salad").getName()
+                + " salad is: " + service.calculateFat(SALADS_LIST.get("caesar salad")));
+
+        //  3 --- посчитать кол-во жиров в салате с говядиной
+        service.consoleOutputAndFileWriter("The total of fat for "
+                + SALADS_LIST.get("caesar salad").getName()
+                + " salad is: " + service.calculateFat(SALADS_LIST.get("caesar salad")));
 
 
-        //  5
-        // Найти салаты, состоящие только из овощей -- вегетарианские салаты
-        System.out.println("The vegetarian salads are: " + service.findVegetarianSalads(SALADS_LIST));
+        //  4 --- посчитать кол-во белков в салате из помидоров
+        service.consoleOutputAndFileWriter("The total of protein for "
+                + SALADS_LIST.get("tomato salad").getName() + " salad is: "
+                + service.calculateProtein(SALADS_LIST.get("tomato salad")));
 
-        // 6
-        // Найти салаты, в которых есть компонент пожаренный на гриле
-        System.out.println("Salads with grilled meat are: " + service.findSaladsWithGrilledMeat(SALADS_LIST));
+
+        //  5 --- Найти салаты, состоящие только из овощей -- вегетарианские салаты
+        service.consoleOutputAndFileWriter("The vegetarian salads are: "
+                + service.findVegetarianSalads(SALADS_LIST));
+
+        // 6 --- Найти салаты, в которых есть компонент пожаренный на гриле
+        service.consoleOutputAndFileWriter("Salads with grilled meat are: "
+                + service.findSaladsWithGrilledMeat(SALADS_LIST));
+
 
 
         // тест 7
         // отсортировать салаты по калорийности в natural order
-
 
     }
 

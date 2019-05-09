@@ -16,6 +16,10 @@ public abstract class SaladIngredient {
         this.protein = protein;
     }
 
+    public SaladIngredient() {
+
+    }
+
     public Integer getCalories() {
         return calories;
     }
