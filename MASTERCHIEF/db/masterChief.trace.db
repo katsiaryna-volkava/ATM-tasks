@@ -1,0 +1,196 @@
+2019-05-20 13:34:19 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE VEGETABLE_INGREDIENT(ID BIGINT AUTO_INCREMENT PRIMARY KEY,VEGETABLE_NAME VARCHAR(255) NOT NULL,VEGETABLE_TYPE VARCHAR(255),CALORIES INTEGER,CARBOHYDRATES INTEGER,FAT INTEGER,PROTEIN INTEGER [*]"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE vegetable_ingredient(id BIGINT AUTO_INCREMENT PRIMARY KEY,vegetable_name VARCHAR(255) NOT NULL,vegetable_type VARCHAR(255),calories INTEGER,carbohydrates INTEGER,fat INTEGER,protein INTEGER [42001-199]
+2019-05-20 13:34:36 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE VEGETABLE_INGREDIENT(ID BIGINT AUTO_INCREMENT PRIMARY KEY,VEGETABLE_NAME VARCHAR(255) NOT NULL,VEGETABLE_TYPE VARCHAR(255),CALORIES INTEGER,CARBOHYDRATES INTEGER,FAT INTEGER,PROTEIN INTEGER [*]"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE vegetable_ingredient(id BIGINT AUTO_INCREMENT PRIMARY KEY,vegetable_name VARCHAR(255) NOT NULL,vegetable_type VARCHAR(255),calories INTEGER,carbohydrates INTEGER,fat INTEGER,protein INTEGER [42001-199]
+2019-05-20 13:37:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLAVOUR(ID BIGINT AUTO_INCREMENT PRIMARY KEY,FLAVOUR_NAME VARCHAR(255) NOT NULL,CALORIES INTEGER,CARBOHYDRATES INTEGER,FAT INTEGER,PROTEIN INTEGER [*]"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE flavour(id BIGINT AUTO_INCREMENT PRIMARY KEY,flavour_name VARCHAR(255) NOT NULL,calories INTEGER,carbohydrates INTEGER,fat INTEGER,protein INTEGER [42001-199]
+2019-05-20 13:38:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLAVOUR(ID BIGINT AUTO_INCREMENT PRIMARY KEY,FLAVOUR_NAME VARCHAR(255) NOT NULL,CALORIES INTEGER,CARBOHYDRATES INTEGER,FAT INTEGER,PROTEIN INTEGER [*]"; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE flavour(id BIGINT AUTO_INCREMENT PRIMARY KEY,flavour_name VARCHAR(255) NOT NULL,calories INTEGER,carbohydrates INTEGER,fat INTEGER,protein INTEGER [42001-199]
+2019-05-20 13:55:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLAVOUR(ID BIGINT AUTO_INCREMENT PRIMARY KEY,FLAVOUR_NAME VARCHAR(255) NOT NULL,CALORIES INTEGER(8),CARBOHYDRATES DECIMAL(4,2),FAT DECIMAL(4,2),PROTEIN DECIMAL(4,2) [*]"; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE flavour(id BIGINT AUTO_INCREMENT PRIMARY KEY,flavour_name VARCHAR(255) NOT NULL,calories INTEGER(8),carbohydrates DECIMAL(4,2),fat DECIMAL(4,2),protein DECIMAL(4,2) [42001-199]
+2019-05-20 14:05:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLAVOUR(ID BIGINT AUTO_INCREMENT PRIMARY KEY,FLAVOUR_NAME VARCHAR(255) NOT NULL,CALORIES INTEGER(8),CARBOHYDRATES DECIMAL(4,2),FAT DECIMAL(4,2),PROTEIN DECIMAL(4,2) [*]"; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE flavour(id BIGINT AUTO_INCREMENT PRIMARY KEY,flavour_name VARCHAR(255) NOT NULL,calories INTEGER(8),carbohydrates DECIMAL(4,2),fat DECIMAL(4,2),protein DECIMAL(4,2) [42001-199]
+2019-05-20 14:18:07 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:441)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:404)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3343)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:95)
+	at org.h2.engine.Database.getPageStore(Database.java:2739)
+	at org.h2.engine.Database.open(Database.java:769)
+	at org.h2.engine.Database.openDatabase(Database.java:319)
+	at org.h2.engine.Database.<init>(Database.java:313)
+	at org.h2.engine.Engine.openSession(Engine.java:69)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at masterchief.data.MasterChiefDB.getConnection(MasterChiefDB.java:18)
+	at masterchief.data.repository.BaseTable.<init>(BaseTable.java:18)
+	at masterchief.data.repository.Flavour.<init>(Flavour.java:8)
+	at masterchief.data.MasterChiefDB.<init>(MasterChiefDB.java:30)
+	at masterchief.MasterChiefApplication.main(MasterChiefApplication.java:78)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 29 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:883)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
+	... 23 more
+2019-05-20 14:19:25 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:441)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:404)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3343)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:95)
+	at org.h2.engine.Database.getPageStore(Database.java:2739)
+	at org.h2.engine.Database.open(Database.java:769)
+	at org.h2.engine.Database.openDatabase(Database.java:319)
+	at org.h2.engine.Database.<init>(Database.java:313)
+	at org.h2.engine.Engine.openSession(Engine.java:69)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at masterchief.data.MasterChiefDB.getConnection(MasterChiefDB.java:18)
+	at masterchief.data.repository.BaseTable.<init>(BaseTable.java:18)
+	at masterchief.data.repository.Flavour.<init>(Flavour.java:8)
+	at masterchief.data.MasterChiefDB.<init>(MasterChiefDB.java:30)
+	at masterchief.MasterChiefApplication.main(MasterChiefApplication.java:78)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 29 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:883)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
+	... 23 more
+2019-05-20 14:19:38 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:441)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:404)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3343)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:95)
+	at org.h2.engine.Database.getPageStore(Database.java:2739)
+	at org.h2.engine.Database.open(Database.java:769)
+	at org.h2.engine.Database.openDatabase(Database.java:319)
+	at org.h2.engine.Database.<init>(Database.java:313)
+	at org.h2.engine.Engine.openSession(Engine.java:69)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at masterchief.data.MasterChiefDB.getConnection(MasterChiefDB.java:18)
+	at masterchief.data.repository.BaseTable.<init>(BaseTable.java:18)
+	at masterchief.data.repository.Flavour.<init>(Flavour.java:8)
+	at masterchief.data.MasterChiefDB.<init>(MasterChiefDB.java:30)
+	at masterchief.MasterChiefApplication.main(MasterChiefApplication.java:78)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 29 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Katsiaryna_Volkava/Documents/mentoring/auto/idea/ATM/MASTERCHIEF/db/masterChief.mv.db [1.4.199/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:883)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
+	... 23 more
+2019-05-20 14:19:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE FLAVOUR(ID BIGINT AUTO_INCREMENT PRIMARY KEY,FLAVOUR_NAME VARCHAR(255) NOT NULL,CALORIES INTEGER(8),CARBOHYDRATES DECIMAL(4,2),FAT DECIMAL(4,2),PROTEIN DECIMAL(4,2) [*]"; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE flavour(id BIGINT AUTO_INCREMENT PRIMARY KEY,flavour_name VARCHAR(255) NOT NULL,calories INTEGER(8),carbohydrates DECIMAL(4,2),fat DECIMAL(4,2),protein DECIMAL(4,2) [42001-199]
+2019-05-20 14:24:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE MEAT_INGREDIENT(ID BIGINT AUTO_INCREMENT PRIMARY KEY,MEAT_NAME VARCHAR(255) NOT NULL,IS_GRILLED BOOLEAN NOT NULL,CALORIES INTEGER(8),CARBOHYDRATES DECIMAL(4,2),FAT DECIMAL(4,2),PROTEIN DECIMAL(4,2) [*]"; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE meat_ingredient(id BIGINT AUTO_INCREMENT PRIMARY KEY,meat_name VARCHAR(255) NOT NULL,is_grilled BOOLEAN NOT NULL,calories INTEGER(8),carbohydrates DECIMAL(4,2),fat DECIMAL(4,2),protein DECIMAL(4,2) [42001-199]
+2019-05-20 14:26:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLAVOUR" already exists; SQL statement:
+CREATE TABLE flavour(id BIGINT AUTO_INCREMENT primary key,
+                flavour_name VARCHAR(255)NOT NULL,
+                calories INTEGER(8),
+                carbohydrates DECIMAL(4, 2),
+                fat DECIMAL(4, 2),
+                protein DECIMAL(4, 2)) [42101-199]
+2019-05-20 14:30:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLAVOUR" already exists; SQL statement:
+CREATE TABLE flavour(id BIGINT AUTO_INCREMENT primary key,
+                flavour_name VARCHAR(255)NOT NULL,
+                calories INTEGER(8),
+                carbohydrates DECIMAL(4, 2),
+                fat DECIMAL(4, 2),
+                protein DECIMAL(4, 2)) [42101-199]
+2019-05-20 14:32:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOR[*] EXISTS FLAVOUR(ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+                FLAVOUR_NAME VARCHAR(255)NOT NULL,
+                CALORIES INTEGER(8),
+                CARBOHYDRATES DECIMAL(4, 2),
+                FAT DECIMAL(4, 2),
+                PROTEIN DECIMAL(4, 2)) "; expected "NOT"; SQL statement:
+CREATE TABLE IF NOR EXISTS flavour(id BIGINT AUTO_INCREMENT primary key,
+                flavour_name VARCHAR(255)NOT NULL,
+                calories INTEGER(8),
+                carbohydrates DECIMAL(4, 2),
+                fat DECIMAL(4, 2),
+                protein DECIMAL(4, 2)) [42001-199]
+2019-05-20 14:33:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO flavour (flavour_name, calories, carbohydrates, fat, protein)VALUES ('nothing', null, null, null) [21002-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:314)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at masterchief.data.repository.BaseTable.executeSqlStatement(BaseTable.java:35)
+	at masterchief.data.repository.BaseTable.executeSqlStatement(BaseTable.java:42)
+	at masterchief.data.repository.Flavour.fillInTableWithData(Flavour.java:43)
+	at masterchief.data.MasterChiefDB.fillTablesWithData(MasterChiefDB.java:43)
+	at masterchief.MasterChiefApplication.main(MasterChiefApplication.java:139)
+2019-05-20 14:50:16 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO vegetable_ingredient (vegetable_name, vegetable_type, calories, carbohydrates, fat, protein)VALUES ('olives', [*]'145, 3.84, 15.32, 1.03)"; SQL statement:
+INSERT INTO vegetable_ingredient (vegetable_name, vegetable_type, calories, carbohydrates, fat, protein)VALUES ('olives', '145, 3.84, 15.32, 1.03) [42000-199]
