@@ -1,5 +1,6 @@
 package masterchief;
 
+import masterchief.data.MasterChiefDB;
 import masterchief.domain.*;
 import masterchief.domain.enumerations.VegetableType;
 import masterchief.exception.EmptySaladException;
@@ -9,20 +10,13 @@ import masterchief.service.SaladOperationsService;
 import masterchief.service.SaladValidationService;
 
 import java.io.*;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MasterChiefApplication {
-
-
     private static final Map<String, Salad> SALADS_LIST;
 
-    /*
-     private static final Map<String, VegetableComponent> VEGETABLE_INGREDIENTS;
-     private static final Map<String, MeatComponent> MEAT_INGREDIENTS;
-     private static final Map<String, Flavour> FLAVOR_COMPONENT;
-
-*/
     static {
         SALADS_LIST = new HashMap<>();
 
@@ -40,22 +34,6 @@ public class MasterChiefApplication {
         Flavour mayonnaise = new Flavour(100, 23.5, 16.5, 5.6, "mayonnaise");
         Flavour sour_cream = new Flavour(50, 12.0, 20.3, 10.2, "sour cream");
         Flavour nothing = new Flavour();
-
-        /*
-        VEGETABLE_INGREDIENTS.put("tomato", tomato);
-        VEGETABLE_INGREDIENTS.put("cucumber", cucumber);
-        VEGETABLE_INGREDIENTS.put("pepper", pepper);
-        VEGETABLE_INGREDIENTS.put("olives", olives);
-        VEGETABLE_INGREDIENTS.put("lettuce", lettuce);
-
-        MEAT_INGREDIENTS.put("beef", beef);
-        MEAT_INGREDIENTS.put("chicken", chicken);
-        MEAT_INGREDIENTS.put("ham", ham);
-
-        FLAVOR_COMPONENT.put("olive oil", olive_oil);
-        FLAVOR_COMPONENT.put("mayonnaise", mayonnaise);
-        FLAVOR_COMPONENT.put("sour cream", sour_cream);
-        */
 
         Salad greekSalad = new Salad("greek");
         greekSalad.add(tomato);
@@ -93,10 +71,11 @@ public class MasterChiefApplication {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
 
         SaladOperationsService operationService = new SaladOperationsService();
         SaladValidationService validationService = new SaladValidationService();
+        MasterChiefDB db = new MasterChiefDB();
 
         // 1 --- посчитать калорийность греческого салата
         operationService.consoleOutputAndFileWriter("The total of calories for "
@@ -132,14 +111,14 @@ public class MasterChiefApplication {
 
         // тест 7 --- отсортировать салаты по калорийности в natural order
 
-        // 8 --- первое исключения - в салате нет ингридиентов
+        // 8 --- первое пользовательское исключение - в салате нет ингридиентов
         try {
             validationService.checkThatSaladIsNotEmpty(new Salad("empty salad"));
         } catch (EmptySaladException e) {
             operationService.consoleOutputAndFileWriter(e.getMessage());
         }
 
-        // 9 --- второе исключение - салат с таким именем уже существует
+        // 9 --- второе пользовательское исключение - салат с таким именем уже существует
         try {
             validationService.checkIfSpecifiedSaladExists(SALADS_LIST, "tomato salad");
         } catch (SaladAlreadyExistException e) {
@@ -147,15 +126,21 @@ public class MasterChiefApplication {
         }
 
 
-        // 9 --- третье исключение - когда в салате есть ингриденты без нужных полей (без указания кол-ва белка)
+        // 9 --- третье пользовательское исключение - когда в салате есть ингриденты без нужных полей (без указания кол-ва белка)
         try {
             validationService.checkIfPossibleToCalculateProteins(SALADS_LIST);
         } catch (MissingProteinInfoException e) {
             operationService.consoleOutputAndFileWriter(e.getMessage());
         }
 
-
-
+        // 10 чтение из БД -- прочитать названия существующих в БД овощных ингридиентов
+        try {
+            db.createTables();
+            db.fillTablesWithData();
+            db.getVegetables();
+        } catch (Exception e) {
+            operationService.consoleOutputAndFileWriter(e.getMessage());
+        }
     }
 
 }

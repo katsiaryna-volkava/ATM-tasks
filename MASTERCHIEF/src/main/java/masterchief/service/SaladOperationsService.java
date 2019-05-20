@@ -3,8 +3,6 @@ package masterchief.service;
 import masterchief.domain.MeatComponent;
 import masterchief.domain.Salad;
 import masterchief.domain.SaladIngredient;
-import masterchief.exception.EmptySaladException;
-import masterchief.exception.MissingProteinInfoException;
 import masterchief.exception.SaladException;
 
 import java.io.BufferedWriter;
