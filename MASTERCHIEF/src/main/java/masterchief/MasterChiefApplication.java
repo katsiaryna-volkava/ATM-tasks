@@ -1,6 +1,7 @@
 package masterchief;
 
 import masterchief.data.MasterChiefDB;
+import masterchief.data.MasterChiefJSON;
 import masterchief.domain.*;
 import masterchief.domain.enumerations.VegetableType;
 import masterchief.exception.EmptySaladException;
@@ -73,9 +74,13 @@ public class MasterChiefApplication {
 
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
 
+        File file = new File("C:\\Users\\Katsiaryna_Volkava\\Documents\\mentoring\\auto\\idea\\json_file.txt");
+
         SaladOperationsService operationService = new SaladOperationsService();
         SaladValidationService validationService = new SaladValidationService();
         MasterChiefDB db = new MasterChiefDB();
+        MasterChiefJSON json = new MasterChiefJSON();
+
 
         // 1 --- посчитать калорийность греческого салата
         operationService.consoleOutputAndFileWriter("The total of calories for "
@@ -136,11 +141,16 @@ public class MasterChiefApplication {
         // 10 чтение из БД -- прочитать названия существующих в БД овощных ингридиентов
         try {
             db.createTables();
-            db.fillTablesWithData();
+            // db.fillTablesWithData();
             db.getVegetables();
         } catch (Exception e) {
             operationService.consoleOutputAndFileWriter(e.getMessage());
         }
+
+        // 11 чтение объекта из json-файла
+        String result = json.readIngredientNutritionInfoFromFile(file);
+        operationService.consoleOutputAndFileWriter(result);
+
     }
 
 }

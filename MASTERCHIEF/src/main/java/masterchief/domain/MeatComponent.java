@@ -1,7 +1,10 @@
 package masterchief.domain;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import java.util.Objects;
 
+@JsonAutoDetect
 public class MeatComponent extends SaladIngredient {
     private String name;
     private boolean isGrilled;
@@ -10,6 +13,9 @@ public class MeatComponent extends SaladIngredient {
         super(calories, carbohydrates, fat, protein);
         this.name = name;
         this.isGrilled = isGrilled;
+    }
+
+    public MeatComponent() {
     }
 
     public boolean isGrilled() {

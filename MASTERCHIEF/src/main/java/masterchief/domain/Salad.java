@@ -1,9 +1,12 @@
 package masterchief.domain;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@JsonAutoDetect
 public class Salad {
     private String name;
     private List<SaladIngredient> ingredients;
@@ -11,6 +14,10 @@ public class Salad {
     public Salad (String name){
         this.name = name;
         this.ingredients = new ArrayList<>();
+    }
+
+    public Salad() {
+        this.name = name;
     }
 
     public String getName() {

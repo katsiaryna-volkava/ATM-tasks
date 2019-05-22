@@ -1,4 +1,4 @@
-package com.epam.atm.algorithm;
+package algorithm;
 
 import java.util.ArrayList;
 

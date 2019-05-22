@@ -1,7 +1,10 @@
 package masterchief.domain;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import java.util.Objects;
 
+@JsonAutoDetect
 public abstract class SaladIngredient {
     private Integer calories;
     private Double carbohydrates;
