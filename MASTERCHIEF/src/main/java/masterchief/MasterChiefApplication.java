@@ -114,8 +114,6 @@ public class MasterChiefApplication {
                 + operationService.findSaladsWithGrilledMeat(SALADS_LIST));
 
 
-        // тест 7 --- отсортировать салаты по калорийности в natural order
-
         // 8 --- первое пользовательское исключение - в салате нет ингридиентов
         try {
             validationService.checkThatSaladIsNotEmpty(new Salad("empty salad"));
@@ -131,7 +129,7 @@ public class MasterChiefApplication {
         }
 
 
-        // 9 --- третье пользовательское исключение - когда в салате есть ингриденты без нужных полей (без указания кол-ва белка)
+        // 9 --- третье пользовательское исключение - когда в салате есть ингридиенты без нужных полей (без указания кол-ва белка)
         try {
             validationService.checkIfPossibleToCalculateProteins(SALADS_LIST);
         } catch (MissingProteinInfoException e) {
